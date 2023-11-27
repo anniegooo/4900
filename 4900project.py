@@ -93,12 +93,12 @@ for t in range(50,2939):
         else:
            y=0
     y50.append(y)
-print(y50)
+print(y50.count(1),y50.count(-1))
 
 y100=[]
 for t in range(100,2939):
-    f=float(p[t])-float(R50[t-100])
-    g=float(S50[t-100])-float(p[t])
+    f=float(p[t])-float(R100[t-100])
+    g=float(S100[t-100])-float(p[t])
     if f>0:
         x=1
     else:
@@ -111,8 +111,8 @@ print(y100)
 
 y200=[]
 for t in range(200,2939):
-    f=float(p[t])-float(R50[t-200])
-    g=float(S50[t-200])-float(p[t])
+    f=float(p[t])-float(R200[t-200])
+    g=float(S200[t-200])-float(p[t])
     if f>0:
         z=1
     else:
@@ -185,7 +185,7 @@ print(len(r50b))
 
 r100b=[]
 r=[]
-for i in range(50,2839):
+for i in range(100,2839):
     if float(y100[i])>0:
         for j in range(0,10):
            mp=float(p[i+j])/float(p[i-1+j])
@@ -200,7 +200,7 @@ print(len(r100b))
 
 r200b=[]
 r=[]
-for i in range(50,2739):
+for i in range(200,2739):
     if float(y200[i])>0:
         for j in range(0,10):
            mp=float(p[i+j])/float(p[i-1+j])
@@ -230,7 +230,7 @@ print(len(r50s))
 
 r100s=[]
 r=[]
-for i in range(50,2839):
+for i in range(100,2839):
     if float(y100[i])<0:
         for j in range(0,10):
            mp=float(p[i+j])/float(p[i-1+j])
@@ -245,7 +245,7 @@ print(len(r100s))
 
 r200s=[]
 r=[]
-for i in range(50,2739):
+for i in range(200,2739):
     if float(y200[i])<0:
         for j in range(0,10):
            mp=float(p[i+j])/float(p[i-1+j])
@@ -307,13 +307,13 @@ for i in range(0,969):
 rb50=statistics.mean(a)
 a.clear()
 a=[]
-for i in range(0,990):
+for i in range(0,793):
     if float(r100b[i])>0:
         a.append(r100b[i])
 rb100=statistics.mean(a)
 a.clear()
 a=[]
-for i in range(0,908):
+for i in range(0,540):
     if float(r200b[i])>0:
         a.append(r200b[i])
 rb200=statistics.mean(a)
@@ -325,13 +325,13 @@ for i in range(0,946):
 rs50=statistics.mean(a)
 a.clear()
 a=[]
-for i in range(0,940):
+for i in range(0,745):
     if float(r100s[i])>0:
         a.append(r100s[i])
 rs100=statistics.mean(a)
 a.clear()
 a=[]
-for i in range(0,907):
+for i in range(0,521):
     if float(r200s[i])>0:
         a.append(r200s[i])
 rs200=statistics.mean(a)
@@ -379,7 +379,7 @@ r100band=[]
 for i in range(2939,100,-1):
     for j in range(100,1,-1):
         r100band.append(p[i-j])
-    R100band.append(max(r100band))
+    R100band.append(1.01*max(r100band))
     r100band.clear()
 print(R100band)
 
@@ -388,7 +388,7 @@ r200band=[]
 for i in range(2939,200,-1):
     for j in range(200,1,-1):
         r200band.append(p[i-j])
-    R200band.append(max(r200band))
+    R200band.append(1.01*max(r200band))
     r200band.clear()
 print(R200band)
 
@@ -410,8 +410,8 @@ print(y50band)
 
 y100band=[]
 for t in range(100,2939):
-    f=float(p[t])-float(R50band[t-100])
-    g=float(S50band[t-100])-float(p[t])
+    f=float(p[t])-float(R100band[t-100])
+    g=float(S100band[t-100])-float(p[t])
     if f>0:
         x=1
     else:
@@ -424,8 +424,8 @@ print(y100band)
 
 y200band=[]
 for t in range(200,2939):
-    f=float(p[t])-float(R50band[t-200])
-    g=float(S50band[t-200])-float(p[t])
+    f=float(p[t])-float(R200band[t-200])
+    g=float(S200band[t-200])-float(p[t])
     if f>0:
         z=1
     else:
@@ -453,7 +453,7 @@ print(len(r50band))
 
 r100band=[]
 r=[]
-for i in range(50,2839):
+for i in range(100,2839):
     if float(y100band[i])!=0:
         for j in range(0,10):
            mp=float(p[i+j])/float(p[i-1+j])
@@ -468,7 +468,7 @@ print(len(r100band))
 
 r200band=[]
 r=[]
-for i in range(50,2739):
+for i in range(200,2739):
     if float(y200band[i])!=0:
         for j in range(0,10):
            mp=float(p[i+j])/float(p[i-1+j])
@@ -498,7 +498,7 @@ print(len(r50bband))
 
 r100bband=[]
 r=[]
-for i in range(50,2839):
+for i in range(100,2839):
     if float(y100band[i])>0:
         for j in range(0,10):
            mp=float(p[i+j])/float(p[i-1+j])
@@ -513,7 +513,7 @@ print(len(r100bband))
 
 r200bband=[]
 r=[]
-for i in range(50,2739):
+for i in range(200,2739):
     if float(y200band[i])>0:
         for j in range(0,10):
            mp=float(p[i+j])/float(p[i-1+j])
@@ -543,7 +543,7 @@ print(len(r50sband))
 
 r100sband=[]
 r=[]
-for i in range(50,2839):
+for i in range(100,2839):
     if float(y100band[i])<0:
         for j in range(0,10):
            mp=float(p[i+j])/float(p[i-1+j])
@@ -558,7 +558,7 @@ print(len(r100sband))
 
 r200sband=[]
 r=[]
-for i in range(50,2739):
+for i in range(200,2739):
     if float(y200band[i])<0:
         for j in range(0,10):
            mp=float(p[i+j])/float(p[i-1+j])
@@ -620,13 +620,13 @@ for i in range(0,951):
 rb50band=statistics.mean(a)
 a.clear()
 a=[]
-for i in range(0,953):
+for i in range(0,776):
     if float(r100bband[i])>0:
         a.append(r100bband[i])
 rb100band=statistics.mean(a)
 a.clear()
 a=[]
-for i in range(0,866):
+for i in range(0,511):
     if float(r200bband[i])>0:
         a.append(r200bband[i])
 rb200band=statistics.mean(a)
@@ -638,13 +638,13 @@ for i in range(0,911):
 rs50band=statistics.mean(a)
 a.clear()
 a=[]
-for i in range(0,915):
+for i in range(0,708):
     if float(r100sband[i])>0:
         a.append(r100sband[i])
 rs100band=statistics.mean(a)
 a.clear()
 a=[]
-for i in range(0,873):
+for i in range(0,493):
     if float(r200sband[i])>0:
         a.append(r200sband[i])
 rs200band=statistics.mean(a)
